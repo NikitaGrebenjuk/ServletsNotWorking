@@ -10,7 +10,7 @@
 # Production stage
 #
 #FROM tomcat:11.0-jre11
-FROM tomcat:10.1.1-jre11
+FROM tomcat:10.1.1-jre17
 #alternative1:
 COPY export/*.war /usr/local/tomcat/webapps/
 

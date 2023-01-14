@@ -1,9 +1,9 @@
 target/
 export/
+build/
 exportNoSpecificServer/
 !**/src/main/**/target/
 !**/src/test/**/target/
-src/config.properties
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

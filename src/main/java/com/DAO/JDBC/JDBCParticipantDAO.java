@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -19,29 +18,11 @@ public class JDBCParticipantDAO implements ParticipantDAO {
         String username = "";
         String password = "";
         String driver = "";
-        Properties config = new Properties();
- /*
-        try {
-            // Load the configuration file
-            config.load(new FileInputStream("/config/config.properties"));
-            url = config.getProperty("database.url");
-            username = config.getProperty("database.username");
-            password = config.getProperty("database.password");
-            driver = config.getProperty("database.driver");
-        } catch (IOException e) {
-            // Handle errors reading the configuration file
-            e.printStackTrace();
-        }
-*/
-        try (InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("WEB-INF/config.properties")) {
-            config.load(in);
-            url = config.getProperty("database.url");
-            username = config.getProperty("database.username");
-            password = config.getProperty("database.password");
-            driver = config.getProperty("database.driver");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        url = "jdbc:mysql://localhost/devDB";
+        username = "root";
+        password = "admin123!";
+        driver = "com.mysql.cj.jdbc.Driver";
         Class.forName(driver);
         return DriverManager.getConnection(url, username, password);
 
