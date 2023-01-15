@@ -1,0 +1,17 @@
+#MySQL:
+docker run --name Meine_mysql_DB -p 3306:3306 -p 33060:33060 -v c:\DB:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Admin123! -d mysql:latest
+# docker exec -it Meine_mysql_DB mysql -u root -p
+
+create Database devDB;
+
+CREATE TABLE Batch(
+    BatchID INT PRIMARY KEY AUTO_INCREMENT,
+    BatchName VARCHAR(256)
+    );
+
+CREATE TABLE Participants(
+    PID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(256),
+    BatchID INT
+    );
+
